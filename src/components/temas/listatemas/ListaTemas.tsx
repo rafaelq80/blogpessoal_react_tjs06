@@ -23,6 +23,8 @@ function ListaTemas() {
 	 */
 	const [temas, setTemas] = useState<Tema[]>([])
 
+	const [isLoading, setIsLoading] = useState<boolean>(false)
+
 	/**
 	 * Acessamos o contexto AuthContext através do hook
 	 * useContext.
@@ -67,6 +69,7 @@ function ListaTemas() {
 		 *   do cabeçalho da requisição (headers), na propriedade Authorization
 		 */
 		try {
+			setIsLoading(true)
 			await buscar("/temas", setTemas, {
 				headers: { Authorization: token },
 			})
@@ -74,6 +77,8 @@ function ListaTemas() {
 			if (error.toString().includes("401")) {
 				handleLogout()
 			}
+		}finally{
+			setIsLoading(false)
 		}
 	}
 
@@ -111,7 +116,7 @@ function ListaTemas() {
             o Componente de Carregamento (loader) DNA, da Biblioteca React 
             Loader Spinner, até que o Backend retorne uma resposta. 
         */}
-			{temas === undefined && (
+			{isLoading && (
 				<DNA
 					visible={true}
 					height="200"
@@ -130,7 +135,7 @@ function ListaTemas() {
 						Se o Recurso Tema estiver vazio, ou seja, não possuir nenhum
 						tema cadastrado, será exibida a mensagem abaixo
 					*/}
-					{temas.length === 0 && (
+					{ (!isLoading && temas.length) === 0 && (
 						<span className="text-3xl text-center my-8">
 							Nenhum Tema foi encontrado!
 						</span>

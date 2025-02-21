@@ -6,7 +6,7 @@ import { login } from '../services/Service'
  * Criamos a Interface AuthContextProps com as propriedades que serão 
  * compartilhadas com toda a aplicação. Lembrando que essa interface 
  * tem como responsabilidade definir a estrutura do nosso contexto, 
- * ou seja, quais Estados e Funções serão aramzenadas no contexto. 
+ * ou seja, quais Estados e Funções serão armazenadas no contexto. 
  */
 interface AuthContextProps {
 	usuario: UsuarioLogin

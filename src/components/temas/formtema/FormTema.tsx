@@ -25,7 +25,7 @@ function FormTema() {
      * O Hook useParams, da Biblioteca React Router DOM possui 2 parâmetros:
      * 
      * const { id }: Usando a desestruturação de objetos, extraímos o valor do 
-     * parâmetro "id" da URL e atribuimos à variável id. O { id } corresponde 
+     * parâmetro "id" da URL e atribuímos à variável id. O { id } corresponde 
      * ao nome do parâmetro que será acessado.
      * 
      * useParams<{ id: string }>(): Utilizamos o Hook useParams, para acessar 
@@ -63,7 +63,7 @@ function FormTema() {
      * Os dados obtidos na Resposta da Requisição, serão utilizados para 
      * preencher os campos do Fomulário Tema, no modo Editar Tema.
 	 * 
-	 * **IMPLEMENTAÇÂO EXTRA**
+	 * **IMPLEMENTAÇÃO EXTRA**
 	 * 
 	 * Caso o id esteja indefinido (undefined), para garantir ao criar um novo tema
 	 * o estado tema esteja vazio, executamos a função setTema() para redefinir o 
@@ -91,7 +91,7 @@ function FormTema() {
      * Criamos a função gerarNovoTema, responsável por criar e 
      * atualizar os temas da aplicação.
      * 
-     * Atravás de um Laço Condicional, a função verificará se a 
+     * Através de um Laço Condicional, a função verificará se a 
      * variável id é diferente de undefined:
      * 
      * - Se for diferente de undefined, a função assume que se 

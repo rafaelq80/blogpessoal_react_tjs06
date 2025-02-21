@@ -8,6 +8,10 @@ function ModalPostagem() {
     return (
         <>
             <Popup
+
+                /**
+                 * Cria o botão que será utilizado para abrir o Modal
+                 */
                 trigger={
                     <button 
                         className='border rounded px-4 py-2 hover:bg-white hover:text-indigo-800'>
@@ -16,6 +20,7 @@ function ModalPostagem() {
                 }
                 modal
             >
+                {/* Adiciona o Fomulário de Postagem dentro do modal */}
                 <FormPostagem />
             </Popup>
         </>

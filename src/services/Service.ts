@@ -84,7 +84,7 @@ export const login = async (url: string, dados: Object, setDados: Function) => {
  *   base definida anteriormente na instância do Axios (baseURL).
  * 
  * - setDados: É a função que será utilizada para atualizar o Estado,
- *   que recebrá os dados enviados pelo Backend no corpo da resposta
+ *   que receberá os dados enviados pelo Backend no corpo da resposta
  *   da Requisição HTTP. Este Estado, pode ser um único objeto ou um array, 
  *   que armazenará vários objetos.
  * 

@@ -132,39 +132,36 @@ function Cadastro() {
 	 * usuario após o cadastro bem-sucedido.
 	 */
 	async function cadastrarNovoUsuario(e: FormEvent<HTMLFormElement>) {
-		
 		/**
-		 * A Função e.preventDefault() tem a responsabilidade de impedir que a página seja 
+		 * A Função e.preventDefault() tem a responsabilidade de impedir que a página seja
 		 * recarregada todas as vezes que os dados do formulário forem enviados, ao clicar
 		 * no botão cadastrar.
 		 */
 		e.preventDefault()
 
-		 /**
-		 * O Laço Condicional verifica se a senha digitada no input senha e 
-		 * a senha digitada no input confirmarSenha são iguais, além de 
+		/**
+		 * O Laço Condicional verifica se a senha digitada no input senha e
+		 * a senha digitada no input confirmarSenha são iguais, além de
 		 * verificar se as senhas digitadas possuem pelo menos 8 caracteres.
 		 */
 		if (confirmarSenha === usuario.senha && usuario.senha.length >= 8) {
-			
 			/**
-			 * A função setIsLoading(true) modifica o valor do Estado isLoading 
-			 * para true, indicando que o processo de cadastro está em andamento, 
+			 * A função setIsLoading(true) modifica o valor do Estado isLoading
+			 * para true, indicando que o processo de cadastro está em andamento,
 			 * exibindo o Loader.
 			 */
 			setIsLoading(true)
 
 			try {
-
 				/**
-				 * Dentro do bloco TRY, invocamos a função cadastrarUsuario, do Script Service. 
+				 * Dentro do bloco TRY, invocamos a função cadastrarUsuario, do Script Service.
 				 * Seguindo a sua estrutura, passamos como argumentos:
-				 * 
-				 * - A URL do endpoint de cadastro ('/usuarios/cadastrar'), 
+				 *
+				 * - A URL do endpoint de cadastro ('/usuarios/cadastrar'),
 				 *   definida no recurso Usuario do Backend;
 				 * - O Estado usuario, contendo os dados que serão persistidos no Banco de dados;
-				 * - A função setUsuario, que será utilizada para atualizar o Estado do objeto usuario, 
-				 *   com os dados recebidos na Resposta da Requisição HTTP. 
+				 * - A função setUsuario, que será utilizada para atualizar o Estado do objeto usuario,
+				 *   com os dados recebidos na Resposta da Requisição HTTP.
 				 */
 				await cadastrarUsuario("/usuarios/cadastrar", usuario, setUsuario)
 				alert("Usuário Cadastrado com sucesso!")
@@ -217,22 +214,20 @@ function Cadastro() {
 							name="nome"
 							placeholder="Nome"
 							className="border-2 border-slate-700 rounded p-2"
-
-							 /**
-							 * Através da propriedade value, definimos que o valor exibido 
-							 * nesse input será o mesmo que estiver armazenado no respectivo 
+							/**
+							 * Através da propriedade value, definimos que o valor exibido
+							 * nesse input será o mesmo que estiver armazenado no respectivo
 							 * atributo do estado usuario.
-							 * Neste caso específico, o input está vinculado ao atributo 
+							 * Neste caso específico, o input está vinculado ao atributo
 							 * nome do estado.
 							 */
 							value={usuario.nome}
-
 							/**
-							 * Através do evento onChange definiremos a função que será executada, 
-							 * todas as vezes que o valor do input for modificado, ou seja, quando 
-							 * o usuário digitar alguma coisa no input. 
-							 * 
-							 * A função (e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e), 
+							 * Através do evento onChange definiremos a função que será executada,
+							 * todas as vezes que o valor do input for modificado, ou seja, quando
+							 * o usuário digitar alguma coisa no input.
+							 *
+							 * A função (e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e),
 							 * receberá os dados do input que foi modificado, através do parâmetro e (Evento).
 							 */
 							onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
@@ -246,22 +241,20 @@ function Cadastro() {
 							name="usuario"
 							placeholder="Usuario"
 							className="border-2 border-slate-700 rounded p-2"
-							
-							 /**
-							 * Através da propriedade value, definimos que o valor exibido 
-							 * nesse input será o mesmo que estiver armazenado no respectivo 
+							/**
+							 * Através da propriedade value, definimos que o valor exibido
+							 * nesse input será o mesmo que estiver armazenado no respectivo
 							 * atributo do estado usuario.
-							 * Neste caso específico, o input está vinculado ao atributo 
+							 * Neste caso específico, o input está vinculado ao atributo
 							 * usuario do estado.
 							 */
-							 value={usuario.usuario}
-
-							 /**
-							 * Através do evento onChange definiremos a função que será executada, 
-							 * todas as vezes que o valor do input for modificado, ou seja, quando 
-							 * o usuário digitar alguma coisa no input. 
-							 * 
-							 * A função (e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e), 
+							value={usuario.usuario}
+							/**
+							 * Através do evento onChange definiremos a função que será executada,
+							 * todas as vezes que o valor do input for modificado, ou seja, quando
+							 * o usuário digitar alguma coisa no input.
+							 *
+							 * A função (e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e),
 							 * receberá os dados do input que foi modificado, através do parâmetro e (Evento).
 							 */
 							onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
@@ -275,22 +268,20 @@ function Cadastro() {
 							name="foto"
 							placeholder="Foto"
 							className="border-2 border-slate-700 rounded p-2"
-							
-							 /**
-							  * Através da propriedade value, definimos que o valor exibido 
-							 * nesse input será o mesmo que estiver armazenado no respectivo 
+							/**
+							 * Através da propriedade value, definimos que o valor exibido
+							 * nesse input será o mesmo que estiver armazenado no respectivo
 							 * atributo do estado usuario.
-							 * Neste caso específico, o input está vinculado ao atributo 
+							 * Neste caso específico, o input está vinculado ao atributo
 							 * foto do estado.
 							 */
-							 value={usuario.foto}
-
-							 /**
-							 * Através do evento onChange definiremos a função que será executada, 
-							 * todas as vezes que o valor do input for modificado, ou seja, quando 
-							 * o usuário digitar alguma coisa no input. 
-							 * 
-							 * A função (e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e), 
+							value={usuario.foto}
+							/**
+							 * Através do evento onChange definiremos a função que será executada,
+							 * todas as vezes que o valor do input for modificado, ou seja, quando
+							 * o usuário digitar alguma coisa no input.
+							 *
+							 * A função (e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e),
 							 * receberá os dados do input que foi modificado, através do parâmetro e (Evento).
 							 */
 							onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
@@ -304,22 +295,20 @@ function Cadastro() {
 							name="senha"
 							placeholder="Senha"
 							className="border-2 border-slate-700 rounded p-2"
-							
-							 /**
-							 * Através da propriedade value, definimos que o valor exibido 
-							 * nesse input será o mesmo que estiver armazenado no respectivo 
+							/**
+							 * Através da propriedade value, definimos que o valor exibido
+							 * nesse input será o mesmo que estiver armazenado no respectivo
 							 * atributo do estado usuario.
-							 * Neste caso específico, o input está vinculado ao atributo 
-							 * senha do estado. 
+							 * Neste caso específico, o input está vinculado ao atributo
+							 * senha do estado.
 							 */
-							 value={usuario.senha}
-
-							 /**
-							 * Através do evento onChange definiremos a função que será executada, 
-							 * todas as vezes que o valor do input for modificado, ou seja, quando 
-							 * o usuário digitar alguma coisa no input. 
-							 * 
-							 * A função (e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e), 
+							value={usuario.senha}
+							/**
+							 * Através do evento onChange definiremos a função que será executada,
+							 * todas as vezes que o valor do input for modificado, ou seja, quando
+							 * o usuário digitar alguma coisa no input.
+							 *
+							 * A função (e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e),
 							 * receberá os dados do input que foi modificado, através do parâmetro e (Evento).
 							 */
 							onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
@@ -333,21 +322,19 @@ function Cadastro() {
 							name="confirmarSenha"
 							placeholder="Confirmar Senha"
 							className="border-2 border-slate-700 rounded p-2"
-
 							/**
-							 * Através da propriedade value, definimos que o valor dentro desse 
-							 * input será o valor armazenado no Estado confirmaSenha. 
+							 * Através da propriedade value, definimos que o valor dentro desse
+							 * input será o valor armazenado no Estado confirmaSenha.
 							 */
 							value={confirmarSenha}
-
 							/**
-							 * Através do evento onChange definiremos a função que será executada, 
-							 * todas as vezes que o valor do input for modificado, ou seja, quando 
+							 * Através do evento onChange definiremos a função que será executada,
+							 * todas as vezes que o valor do input for modificado, ou seja, quando
 							 * o usuário digitar alguma coisa no input.
-							 *  
+							 *
 							 * Observe que neste input foi passada outra função, a função handleConfirmarSenha(e)
-							 *  
-							 * A função (e: ChangeEvent<HTMLInputElement>) => handleConfirmarSenha(e), 
+							 *
+							 * A função (e: ChangeEvent<HTMLInputElement>) => handleConfirmarSenha(e),
 							 * receberá os dados do input confirmarSenha, através do parâmetro e (Evento).
 							 */
 							onChange={(e: ChangeEvent<HTMLInputElement>) => handleConfirmarSenha(e)}
@@ -356,8 +343,7 @@ function Cadastro() {
 					<div className="flex justify-around w-full gap-8">
 						<button
 							type="reset"
-							className="rounded text-white bg-red-400 
-                  hover:bg-red-700 w-1/2 py-2"
+							className="rounded text-white bg-red-400 hover:bg-red-700 w-1/2 py-2"
 							onClick={retornar}
 						>
 							Cancelar

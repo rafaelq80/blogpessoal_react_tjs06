@@ -18,7 +18,7 @@ function ListaTemas() {
 	 * seguindo a sintaxe básica do Hook useState.
 	 *
 	 * O objetivo do estado usuario é armazenar os dados de todos os temas,
-	 * que foram perisitidos no Backend. Observe que temas foi definido como
+	 * que foram persistidos no Backend. Observe que temas foi definido como
 	 * um Array.
 	 */
 	const [temas, setTemas] = useState<Tema[]>([])
@@ -99,7 +99,7 @@ function ListaTemas() {
 
 	/**
 	 * O segundo Hook useEffect, que será executado sempre que houver
-	 * uma mudança no tamanho (numero de elementos aramzenados) do estado temas.
+	 * uma mudança no tamanho (numero de elementos armazenados) do estado temas.
 	 *
 	 * Todas as vezes que ocorrer uma mudança no tamanho do estado usuario,
 	 * a função buscarTemas() será executada para atualizar a listagem de temas.

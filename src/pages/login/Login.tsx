@@ -89,15 +89,6 @@ function Login() {
 		handleLogin(usuarioLogin)
 	}
 
-	/**
-	 * Exibe no console os dados do estado usuarioLogin
-	 * sendo atualizado em tempo de execução, ou seja, enquanto o
-	 * usuário estiver digitando os dados nos inputs do formulário
-	 *
-	 * IMPORTANTE: Em produção, apague esta linha.
-	 */
-	console.log(JSON.stringify(usuarioLogin))
-
 	return (
 		<>
 			<div className="grid grid-cols-1 lg:grid-cols-2 h-screen place-items-center font-bold">

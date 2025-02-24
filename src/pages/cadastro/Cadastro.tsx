@@ -4,6 +4,7 @@ import { ChangeEvent, FormEvent, useEffect, useState } from "react"
 import Usuario from "../../models/Usuario"
 import { cadastrarUsuario } from "../../services/Service"
 import { RotatingLines } from "react-loader-spinner"
+import { ToastAlerta } from "../../utils/ToastAlerta"
 
 function Cadastro() {
 	/**
@@ -164,28 +165,18 @@ function Cadastro() {
 				 *   com os dados recebidos na Resposta da Requisição HTTP.
 				 */
 				await cadastrarUsuario("/usuarios/cadastrar", usuario, setUsuario)
-				alert("Usuário Cadastrado com sucesso!")
+				ToastAlerta("Usuário Cadastrado com sucesso!", 'sucesso')
 			} catch (error) {
-				alert("Erro ao cadastrar o Usuário!")
+				ToastAlerta("Erro ao cadastrar o Usuário!", 'erro')
 			}
 		} else {
-			alert("Dados do usuário inconsistentes! Verifique as informações e tente novamente.")
+			ToastAlerta("Dados do usuário inconsistentes! Verifique as informações e tente novamente.", 'erro')
 			setUsuario({ ...usuario, senha: "" })
 			setConfirmarSenha("")
 		}
 
 		setIsLoading(false)
 	}
-
-	/**
-	 * Exibe no console os dados dos estados usuario e confirmarSenha
-	 * sendo atualizado em tempo de execução, ou seja, enquanto o
-	 * usuário estiver digitando os dados nos inputs do formulário
-	 *
-	 * IMPORTANTE: Em produção, apague estas linhas.
-	 */
-	console.log(JSON.stringify(usuario))
-	console.log(confirmarSenha)
 
 	return (
 		<>
